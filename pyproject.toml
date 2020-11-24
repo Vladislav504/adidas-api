@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "adidas-api"
+version = "0.1.0"
+description = ""
+authors = ["Vladislav Kovyazin <vvkovyazin@miem.hse.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+yapf = "^0.30.0"
+pylint = "^2.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
