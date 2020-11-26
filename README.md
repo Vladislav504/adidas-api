@@ -1,4 +1,4 @@
-# Adidas API Script :ok_hand:
+# Adidas Runners Events AutoSubcript :runner:
 Perfoms user auto subcription to particular trainings if there are vacancies.
 
 ## How to use
