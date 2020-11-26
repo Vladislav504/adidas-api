@@ -15,7 +15,7 @@ python3 training_url adidas_login adidas_password notify_email
 The email will consist of status message and link to training in adidas runners which you provide in **training_url**.
 
 ## Email settings
-On order to use email notiication you should specify this parameters in [setting.py](/adidas_api/settings.py) file:
+On order to use email notifications you should specify this parameters in [setting.py](/adidas_api/settings.py) file:
 ```python
 # creds for emailling
 sender_address = ''
@@ -30,7 +30,7 @@ If you would like to use cron for script scheduling the start command above does
 ```
 * * * * * python3 ~/path/to/script/main.py training_url adidas_login adidas_password notify_email >> ~/log/path/logs.log
 ```
-Where ```>> ~/log/path/logs.log``` stands for logging which looking in log file similar to this:
+Where ```>> ~/log/path/logs.log``` stands for logging which in log file looking similar to this:
 ```
 ================================
 The script is called with arguments: 
