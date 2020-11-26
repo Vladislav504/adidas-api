@@ -3,12 +3,13 @@ Perfoms user auto subcription to particular trainings if there are vacancies.
 
 ## How to use
 Firstly, clone the repo in you machine.
+> Script is written in python so first of all you need to install the latest verison of python ***(python 3.9.0)***.
 ```
 git clone https://github.com/Vladislav504/adidas-api.git adidas_api
 cd adidas_api
+pip install -r requirements.txt
+cd adidas_api
 ```
-> Script is written in python so first of all you need to install the latest verison of python ***(python 3.9.0)***.
-
 Secondly, you need to run the [main.py](/adidas_api/main.py) with arguments:
 ```
 python3 main.py training_url adidas_login adidas_password notify_email
