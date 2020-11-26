@@ -1,5 +1,5 @@
 # Adidas API Script :ok_hand:
-Perfoms user auto subcription to perticular trainings if there are vacancies.
+Perfoms user auto subcription to particular trainings if there are vacancies.
 
 ## How to use
 Script is written in python so first of all you need to install the latest verison of python ***(python 3.9.0)***.
@@ -30,7 +30,7 @@ If you would like to use cron for script scheduling the start command above does
 ```
 * * * * * python3 ~/path/to/script/main.py training_url adidas_login adidas_password notify_email >> ~/log/path/logs.log
 ```
-Where ```>> ~/log/path/logs.log``` stands for logging which in log file looking similar to this:
+Where ```>> ~/log/path/logs.log``` stands for logging which in log file looks similar to this:
 ```
 ================================
 The script is called with arguments: 
