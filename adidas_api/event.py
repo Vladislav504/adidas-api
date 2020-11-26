@@ -1,6 +1,7 @@
 import requests
 
-from settings import header_event
+from settings import header_event_api
+from settings import header
 
 
 class Event:
@@ -12,6 +13,8 @@ class Event:
         self._slug = url.split("-_-")[-1]
         self._id = Event.get_data(self._slug)["id"]
         self._vacancies = Event._get_vacancies(self._slug)
+        self._header = header.copy()
+        self._header["Referer"] = self._full_url
 
     def has_vacancy(self) -> bool:
         """
@@ -24,6 +27,12 @@ class Event:
         Updates vacancies of event from api
         """
         self._vacancies = Event._get_vacancies(self._slug)
+
+    def check_signing(self, events: list):
+        for event in events:
+            if event["id"] == self._id:
+                return True
+        return False
 
     @property
     def id(self):
@@ -39,13 +48,20 @@ class Event:
         """
         return self._full_url
 
+    @property
+    def header(self):
+        """
+        Return id attribute of event
+        """
+        return self._header
+
     @staticmethod
     def get_data(slug):
         """
         Retrieve event data from api with event slug
         """
         url = f"https://www.adidas.ru/adidasrunners/api/events/{slug}"
-        response = requests.get(url, headers=header_event)
+        response = requests.get(url, headers=header_event_api)
         assert response.ok
         data = response.json()["data"]
         return data

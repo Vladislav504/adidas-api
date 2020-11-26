@@ -13,9 +13,12 @@ class Monitor:
         """
         Checks if there is vacancy and signs the user if free 
         """
-        event = self._user.event
-        event.update()
-        if event.has_vacancy():
+        if self._user.check_signing():
+            return True
+        self._user.event.update()
+        if self._user.event.has_vacancy():
             self._user.signed_up()
             emailing = Emailing(notify_email)
-            emailing.send_email(event.url)
+            emailing.send_email(self._user.event.url)
+            return True
+        return False
