@@ -2,26 +2,43 @@ import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-host = "smtp.gmail.com"
-port = 465
-password = ""
+from settings import sender_address
+from settings import sender_password
+from settings import smtp_host
+from settings import smtp_port
 
 
 class Emailing:
-    @staticmethod
-    def send_test(email, url):
+    def __init__(self, to_email):
+        self._to_email = to_email
+        self._sender_address = sender_address
+        self._host = smtp_host
+        self._port = smtp_port
+
+    def send_email(self, event_url):
         context = ssl.create_default_context()
+        message = self._create_message(event_url)
+        with smtplib.SMTP_SSL(self._host, self._port,
+                              context=context) as server:
+            server.login(sender_address, sender_password)
+            server.sendmail(sender_address, self._to_email,
+                            message.as_string())
+
+    def _create_message(self, event_url):
+        """
+        docstring
+        """
         message = MIMEMultipart("alternative")
         message["Subject"] = "Запись на мероприятие Adidas"
-        message["From"] = "vvkovyazin@miem.hse.ru"
-        message["To"] = email
+        message["From"] = sender_address
+        message["To"] = self._to_email
         text = f"""Привет. Ты был успешно записаны на мероприятие Adidas Runners!"""
         html = f"""\
                 <html>
                 <body>
-                    <p>Привет,<br>
+                    <p>Привет.<br>
                     Ты был успешно записаны на мероприятие Adidas Runners!<br>
-                    <a href="{url}">Ссылка на мероприятие</a>
+                    <a href="{event_url}">Ссылка на мероприятие</a>
                     </p>
                 </body>
                 </html>
@@ -34,11 +51,4 @@ class Emailing:
         # The email client will try to render the last part first
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP_SSL(host, port, context=context) as server:
-            server.login("vvkovyazin@miem.hse.ru", password)
-            server.sendmail("vvkovyazin@miem.hse.ru", email,
-                            message.as_string())
-
-
-if __name__ == "__main__":
-    Emailing.send_test("adidasscript@yandex.ru", "https://www.adidas.ru/adidasrunners/community/moscow/event/ar-atrium-142?cm_sp=RUNNING_HUB-_-LOGGEDIN-_-AR-ATRIUM-142")
+        return message

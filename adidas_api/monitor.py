@@ -1,5 +1,4 @@
-import time
-
+from smtp import Emailing
 from user import User
 
 
@@ -9,14 +8,14 @@ class Monitor:
         Create monitoring instance
         """
         self._user = user
-        self._max_wait = 10
 
-    def start(self):
+    def process(self, notify_email):
         """
-        Starts monitoring on user events and automatically signes up if there is vacancy. 
+        Checks if there is vacancy and signs the user if free 
         """
         event = self._user.event
-        while not event.has_vacancy():
-            event.update()
-            time.sleep(self._max_wait * 60)
-        self._user.signed_up()
+        event.update()
+        if event.has_vacancy():
+            self._user.signed_up()
+            emailing = Emailing(notify_email)
+            emailing.send_email(event.url)

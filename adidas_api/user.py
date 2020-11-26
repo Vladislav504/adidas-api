@@ -1,7 +1,8 @@
-from event import Event
-from settings import header
 import requests
 import json
+
+from event import Event
+from settings import header
 
 
 class User:
@@ -25,7 +26,6 @@ class User:
         })
         response = requests.post(url, headers=header, data=payload)
         assert response.ok
-        print("Signed up!!!")
 
     @property
     def event(self):

@@ -1,5 +1,7 @@
 import requests
+
 from settings import header_event
+
 
 class Event:
     def __init__(self, url: str):
