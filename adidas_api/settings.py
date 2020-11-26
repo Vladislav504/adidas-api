@@ -1,7 +1,7 @@
 # creds for emailling
-sender_address = "vvkovyazin@miem.hse.ru"
-sender_password = "vladislav.2001"
-smtp_host = "smtp.gmail.com"
+sender_address = None
+sender_password = None
+smtp_host = None
 smtp_port = 465
 
 ## Headers for proper requests (do not touch)

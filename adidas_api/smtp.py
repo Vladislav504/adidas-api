@@ -12,16 +12,24 @@ class Emailing:
     def __init__(self, to_email):
         self._to_email = to_email
         self._sender_address = sender_address
+        self._sender_password = sender_password
         self._host = smtp_host
         self._port = smtp_port
 
     def send_email(self, event_url):
+        if  self._to_email is None or \
+            self._sender_address is None or \
+            self._sender_password is None or \
+            self._host is None or \
+            self._port is None:
+            return
+
         context = ssl.create_default_context()
         message = self._create_message(event_url)
         with smtplib.SMTP_SSL(self._host, self._port,
                               context=context) as server:
-            server.login(sender_address, sender_password)
-            server.sendmail(sender_address, self._to_email,
+            server.login(self._sender_address, self._sender_password)
+            server.sendmail(self._sender_address, self._to_email,
                             message.as_string())
 
     def _create_message(self, event_url):
