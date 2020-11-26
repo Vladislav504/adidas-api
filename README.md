@@ -20,7 +20,7 @@ python3 main.py training_url adidas_login adidas_password notify_email
 
 The email will consist of status message and link to training in adidas runners which you provide in **training_url**.
 
-The script will response what has just happend. Where we can acknowledge if the user was subscripted to event.
+The script will response what has just happend. Where you get to know if the user was subscripted to event.
 ```
 ================================
 The script is called with arguments: 
