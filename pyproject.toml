@@ -8,6 +8,7 @@ authors = ["Vladislav Kovyazin <vvkovyazin@miem.hse.ru>"]
 python = "^3.8"
 requests = "^2.25.0"
 hyper = "^0.7.0"
+betterconf = "^2.6.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

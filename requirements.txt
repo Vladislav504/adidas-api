@@ -1,3 +1,6 @@
+betterconf==2.6.1; python_version >= "3.6" and python_version < "4.0" \
+    --hash=sha256:e43e1d3411b868acee8b6e4c0cad911febba60c4ff476700ac54c006f6e0fe12 \
+    --hash=sha256:bdbe958265b7358c0f967593ef4cfe3608303a63510901fa39e5e63b63cb9d78
 certifi==2020.11.8; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" \
     --hash=sha256:1f422849db327d534e3d0c5f02a263458c3955ec0aae4ff09b95f195c59f4edd \
     --hash=sha256:f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4

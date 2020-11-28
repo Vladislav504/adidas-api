@@ -34,6 +34,14 @@ tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)"
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
 
 [[package]]
+name = "betterconf"
+version = "2.6.1"
+description = "Minimalistic Python library for your configs."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "certifi"
 version = "2020.11.8"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -295,7 +303,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7af32be8855a77406d1f52974cf743ee3def03f7b2446f9bc70e0c71c6453857"
+content-hash = "694943017a323e0398334fa88fea501490c2a064a333a408ccfeba2fd629ddb3"
 
 [metadata.files]
 astroid = [
@@ -309,6 +317,10 @@ atomicwrites = [
 attrs = [
     {file = "attrs-20.3.0-py2.py3-none-any.whl", hash = "sha256:31b2eced602aa8423c2aea9c76a724617ed67cf9513173fd3a4f03e3a929c7e6"},
     {file = "attrs-20.3.0.tar.gz", hash = "sha256:832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"},
+]
+betterconf = [
+    {file = "betterconf-2.6.1-py3-none-any.whl", hash = "sha256:e43e1d3411b868acee8b6e4c0cad911febba60c4ff476700ac54c006f6e0fe12"},
+    {file = "betterconf-2.6.1.tar.gz", hash = "sha256:bdbe958265b7358c0f967593ef4cfe3608303a63510901fa39e5e63b63cb9d78"},
 ]
 certifi = [
     {file = "certifi-2020.11.8-py2.py3-none-any.whl", hash = "sha256:1f422849db327d534e3d0c5f02a263458c3955ec0aae4ff09b95f195c59f4edd"},
