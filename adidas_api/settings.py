@@ -1,8 +1,10 @@
-# creds for emailling
 sender_address = None
 sender_password = None
-smtp_host = None
-smtp_port = 465
+smtp_host = ""
+smtp_port = 25
+ssl = False
+tls = False
+auth_required = False
 
 ## Headers for proper requests (do not touch)
 
