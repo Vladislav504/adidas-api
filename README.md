@@ -10,7 +10,7 @@ cd adidas_api
 pip install -r requirements.txt
 cd adidas_api
 ```
-Secondly, make the json file for particaular user:
+Secondly, make the json file for particular user:
 ```
 touch user1.json
 ```
