@@ -9,6 +9,7 @@ python = "^3.8"
 requests = "^2.25.0"
 hyper = "^0.7.0"
 betterconf = "^2.6.1"
+stem = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
