@@ -3,14 +3,14 @@ Perfoms user auto subcription to particular trainings if there are vacancies.
 
 ## How to use
 Firstly, clone the repo in you machine.
-> Script is written in python so first of all you need to install the latest verison of python ***(python 3.9.0)***.
+> Script is written in python so first of all you need to install the latest verison of python ***(python 3.6.9)***.
 ```
 git clone https://github.com/Vladislav504/adidas-api.git adidas_api
 cd adidas_api
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 cd adidas_api
 ```
-Secondly, make the json file for particular user:
+Secondly, make the json file for every user:
 ```
 touch user1.json
 ```
@@ -39,14 +39,20 @@ The script will response what has just happend. Where you get to know if the use
 ```bash
 ================================
 The script is called with arguments: 
-Event url: ---
-Email: ---
-Password: ---
-Notify email: ---
+Event url: --
+Cred_path: --
 User is signed up to event: False/True
 ================================
 ```
-
+>## Warning!!
+>If script managed to get response from api there will such message in command line about user subscription status like above, but if there is some issue with this the script will stuck in this position:
+```bash
+================================
+The script is called with arguments: 
+Event url: --
+Cred_path: --
+```
+>It means that you are not able to get information from API. Such problem can appear when you use script at server. However from PC script should work.
 ## Email settings
 On order to use email notifications you could install your own smtp server on machine or use external (e.g. gmail) and specify essential settings in [setting.py](/adidas_api/settings.py) file:
 ```python
@@ -59,12 +65,13 @@ ssl = False
 tls = False
 auth_required = False
 ```
-For own smtp I recommend to use [postfix](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-18-04-ru).
+Please use the free SMTP server (e.g. GMail) in place of your own. 
 ## Cron for scheduling
 If you would like to use cron for script scheduling for automation the run command above does not change, but in crontab you need to add this line:
 ```bash
 * * * * * python3 ~/path/to/script/main.py training_url the_path_to_config_file >> ~/log/path/logs.log
 ```
 Where ```>> ~/log/path/logs.log``` stands for logging, but it is optional.
+>If you use virtualenv then you should replace python3 with path to python3 file within you local environment.
 
 About ```* * * * *``` you can read in cron docs. (e.g. [here](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-ubuntu-1804-ru))
