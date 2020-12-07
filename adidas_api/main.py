@@ -1,8 +1,6 @@
 import requests
 import json
 import sys
-from stem import Signal
-from stem.control import Controller
 
 from CLI import CLI_args
 from user import User
@@ -22,11 +20,6 @@ def main(arguments):
     
 
 if __name__ == "__main__":
-    with Controller.from_port(port = 9051) as controller:
-        controller.authenticate(password='1234')
-        print("Success!")
-        controller.signal(Signal.NEWNYM)
-        print("New Tor connection processed")
     arguments = CLI_args(sys.argv)
     print("================================")
     print("The script is called with arguments: ")
